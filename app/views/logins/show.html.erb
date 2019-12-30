@@ -1,0 +1,13 @@
+<%= display_errors(@user) %>
+<%= form_for @user, url: login_path do |f| %>
+  <%= render 'flash' %>
+
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.submit 'Sign In' %>
+  <%= link_to 'Create New User', new_user_path %>
+<% end %>
