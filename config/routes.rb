@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root "homes#show"
+  root "tweets#index"
 
-  resource :home, only: :show
   resource :login
-  resources :users
+  resources :users, only: %i[new create]
+  resources :tweets, only: %i[index create]
 end

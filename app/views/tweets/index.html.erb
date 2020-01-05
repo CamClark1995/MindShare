@@ -1,0 +1,34 @@
+<%#= javascript_pack_tag 'hello_react' %>
+<%= render 'flash' %>
+<%= react_component("HelloWorld", { greeting: "Hello from react-rails. #{session[:user_id]}" }) %>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newTweetModal">
+  New 'Tweet'
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="newTweetModal" tabindex="-1" role="dialog" aria-labelledby="newTweetModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newTweetModalLabel">New 'Tweet'</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= display_errors(@tweet) %>
+      <%= form_for @tweet do |f| %>
+        <div class="modal-body">
+          <%= f.hidden_field :user_id, value: @current_user.id %>
+          <%= f.label :content %>
+          <%= f.text_area :content, cols: 62, rows: 5 %>
+        </div>
+        <div class="modal-footer">
+          <!--        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+          <button type="button" class="btn btn-primary"><%= f.submit "Create 'Tweet'" %></button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

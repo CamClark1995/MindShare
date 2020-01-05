@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user
     redirect_to(login_path) && return unless session[:user_id]
-    @current_user = User.where(id: session[:user_id])
+    @current_user = User.where(id: session[:user_id]).first
     redirect_to(login_path) if @current_user.nil?
   end
 end
