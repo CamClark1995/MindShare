@@ -17,9 +17,9 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <%= display_errors(@tweet) %>
       <%= form_for @tweet do |f| %>
         <div class="modal-body">
+          <div id="no_content">&nbsp</div>
           <%= f.hidden_field :user_id, value: @current_user.id %>
           <%= f.label :content %>
           <%= f.text_area :content, cols: 62, rows: 5 %>
@@ -27,9 +27,37 @@
         <div class="modal-footer">
           <!--        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
           <!--        <button type="button" class="btn btn-primary"></button>-->
-          <%= f.submit "Create 'Tweet'", class: 'btn btn-primary' %>
+          <%= f.submit "Create 'Tweet'", id: 'create_tweet', class: 'btn btn-primary' %>
         </div>
       <% end %>
     </div>
   </div>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+        let tweet_content = document.getElementById("tweet_content");
+        let no_content = document.getElementById('no_content');
+        let submit = document.getElementById("create_tweet");
+
+        submit.addEventListener("click", function(e) {
+            if (tweet_content.value.trim().length === 0)
+            {
+                e.preventDefault();
+                no_content.innerHTML = 'You have not entered anything yet!';
+                no_content.style.backgroundColor = 'yellow';
+                setTimeout(function(){
+                    no_content.innerHTML = '&nbsp';
+                    no_content.style.backgroundColor = 'white';
+                }, 3000);
+            }
+        });
+
+        tweet_content.addEventListener("keydown", function(e) {
+           if (tweet_content.value.length >= 100) {
+               e.preventDefault();
+           }
+        });
+    });
+</script>
+
