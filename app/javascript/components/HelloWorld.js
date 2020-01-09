@@ -3,14 +3,14 @@ import PropTypes from "prop-types"
 class HelloWorld extends React.Component {
   render () {
     return (
-      <React.Fragment>
-        Greeting: {this.props.greeting}
-      </React.Fragment>
+      <div className={'tweet'}>
+        {this.props.content}
+      </div>
     );
   }
 }
 
-HelloWorld.propTypes = {
-  greeting: PropTypes.string
-};
+// HelloWorld.propTypes = {
+//   greeting: PropTypes.string
+// };
 export default HelloWorld

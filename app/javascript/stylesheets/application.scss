@@ -1,2 +1,15 @@
 //@import "~bootstrap/scss/bootstrap";
 @import './bootstrap_custom.scss';
+
+.main_content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.tweet {
+  border: solid black 1px;
+  padding: 1rem;
+  margin: 1rem;
+  width: 30rem;
+}

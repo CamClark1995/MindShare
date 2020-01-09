@@ -1,6 +1,5 @@
 <%#= javascript_pack_tag 'hello_react' %>
 <%= render 'flash' %>
-<%= react_component("HelloWorld", { greeting: "Hello from react-rails. #{session[:user_id]}" }) %>
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newTweetModal">
@@ -32,6 +31,12 @@
       <% end %>
     </div>
   </div>
+</div>
+
+<div class="main_content">
+  <% @tweets.each do |tweet| %>
+    <%= react_component("HelloWorld", { content: tweet.content }) %>
+  <% end %>
 </div>
 
 <script>
