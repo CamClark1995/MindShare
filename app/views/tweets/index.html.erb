@@ -3,8 +3,9 @@
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newTweetModal">
-  New 'Tweet'
+  New Post
 </button>
+<div>Posts will be viewable for 14 days before being archived.</div>
 
 <!-- Modal -->
 <div class="modal fade" id="newTweetModal" tabindex="-1" role="dialog" aria-labelledby="newTweetModalLabel" aria-hidden="true">
@@ -18,6 +19,7 @@
       </div>
       <%= form_for @tweet do |f| %>
         <div class="modal-body">
+          Choose your words carefully - you only get 100 characters!
           <div id="no_content">&nbsp</div>
           <%= f.hidden_field :user_id, value: @current_user.id %>
           <%= f.label :content %>
@@ -35,7 +37,7 @@
 
 <div class="main_content">
   <% @tweets.each do |tweet| %>
-    <%= react_component("HelloWorld", { content: tweet.content }) %>
+    <%= react_component('Tweet', { content: tweet.content, username: tweet.username, created_at: tweet.created_at }) %>
   <% end %>
 </div>
 

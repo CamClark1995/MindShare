@@ -4,12 +4,13 @@
 .main_content {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  div {
+    flex: 1 0 50%;
+  }
 }
 
 .tweet {
   border: solid black 1px;
   padding: 1rem;
   margin: 1rem;
-  width: 30rem;
 }
