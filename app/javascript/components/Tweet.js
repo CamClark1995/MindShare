@@ -7,7 +7,7 @@ class Tweet extends React.Component {
     }
 
     componentDidMount() {
-        this.timerID = setInterval(()=>this.tick(), 5000)
+        this.timerID = setInterval(()=>this.tick(), 60000)
     }
 
     componentWillUnmount() {
