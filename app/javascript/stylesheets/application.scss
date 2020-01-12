@@ -1,16 +1,12 @@
 //@import "~bootstrap/scss/bootstrap";
 @import './bootstrap_custom.scss';
 
-.main_content {
-  display: flex;
-  flex-wrap: wrap;
-  div {
-    flex: 1 0 50%;
-  }
-}
-
 .tweet {
   border: solid black 1px;
   padding: 1rem;
   margin: 1rem;
+}
+
+.no_pad {
+  padding: 0;
 }

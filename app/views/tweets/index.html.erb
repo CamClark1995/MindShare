@@ -1,44 +1,48 @@
-<%#= javascript_pack_tag 'hello_react' %>
-<%= render 'flash' %>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <%#= javascript_pack_tag 'hello_react' %>
+      <%= render 'flash' %>
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newTweetModal">
-  New Post
-</button>
-<div>Posts will be viewable for 14 days before being archived.</div>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newTweetModal">
+        New Post
+      </button>
+      <div>Posts will be viewable for 14 days before being archived.</div>
 
-<!-- Modal -->
-<div class="modal fade" id="newTweetModal" tabindex="-1" role="dialog" aria-labelledby="newTweetModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="newTweetModalLabel">New 'Tweet'</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+      <!-- Modal -->
+      <div class="modal fade" id="newTweetModal" tabindex="-1" role="dialog" aria-labelledby="newTweetModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="newTweetModalLabel">New 'Tweet'</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <%= form_for @tweet do |f| %>
+              <div class="modal-body">
+                Choose your words carefully - you only get 100 characters!
+                <div id="no_content">&nbsp</div>
+                <%= f.hidden_field :user_id, value: @current_user.id %>
+                <%= f.label :content %>
+                <%= f.text_area :content, cols: 62, rows: 5 %>
+              </div>
+              <div class="modal-footer">
+                <!--        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+                <!--        <button type="button" class="btn btn-primary"></button>-->
+                <%= f.submit "Create 'Tweet'", id: 'create_tweet', class: 'btn btn-primary' %>
+              </div>
+            <% end %>
+          </div>
+        </div>
       </div>
-      <%= form_for @tweet do |f| %>
-        <div class="modal-body">
-          Choose your words carefully - you only get 100 characters!
-          <div id="no_content">&nbsp</div>
-          <%= f.hidden_field :user_id, value: @current_user.id %>
-          <%= f.label :content %>
-          <%= f.text_area :content, cols: 62, rows: 5 %>
-        </div>
-        <div class="modal-footer">
-          <!--        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
-          <!--        <button type="button" class="btn btn-primary"></button>-->
-          <%= f.submit "Create 'Tweet'", id: 'create_tweet', class: 'btn btn-primary' %>
-        </div>
-      <% end %>
     </div>
-  </div>
-</div>
 
-<div class="main_content">
-  <% @tweets.each do |tweet| %>
-    <%= react_component('Tweet', { content: tweet.content, username: tweet.username, created_at: tweet.created_at }) %>
-  <% end %>
+    <% @tweets.each do |tweet| %>
+      <%= react_component('Tweet', { content: tweet.content, username: tweet.username, created_at: tweet.created_at }, class: 'no_pad col-6') %>
+    <% end %>
+  </div>
 </div>
 
 <script>
