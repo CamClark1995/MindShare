@@ -1,13 +1,29 @@
-<%= display_errors(@user) %>
-<%= form_for @user do |f| %>
-  <%= render 'flash' %>
+<div class="row">
+  <div class="col-4">
 
-  <%= f.label :username %>
-  <%= f.text_field :username %>
+  </div>
+  <div class="col-4 login">
+    <h2>Create User</h2>
+    <%= display_errors(@user) %>
+    <%= form_for @user do |f| %>
+      <%= render 'flash' %>
+      <div class="field">
+        <%= f.label :username %>
+        <%= f.text_field :username %>
+      </div>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+      <div class="field">
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </div>
 
-  <%= f.submit 'Create User' %>
-  <%= link_to 'Cancel', login_path %>
-<% end %>
+      <div class="field">
+        <%= f.submit 'Create User' %>
+      </div>
+      <%= link_to 'Cancel', login_path %>
+    <% end %>
+  </div>
+  <div class="col-4">
+
+  </div>
+</div>

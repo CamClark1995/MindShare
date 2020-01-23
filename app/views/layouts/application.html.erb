@@ -11,13 +11,15 @@
   </head>
 
   <body>
-    <header>
-      <%= link_to 'Logout', login_path, {method: :delete} %>
-    </header>
-    <%= yield %>
-    <footer>
-      This site was created and designed by Cameron Clark in 2020 and includes usage of the following technologies:
-      <strong>Ruby on Rails, JavaScript, jQuery, Bootstrap, React, MySQl</strong>
-    </footer>
+    <div class="container">
+      <header>
+        <%= link_to 'Logout', login_path, {method: :delete} %>
+      </header>
+      <%= yield %>
+      <footer>
+        This site was created and designed by Cameron Clark in 2020 and includes usage of the following technologies:
+        <strong>Ruby on Rails, JavaScript, jQuery, Bootstrap, React, MySQl</strong>
+      </footer>
+    </div>
   </body>
 </html>
