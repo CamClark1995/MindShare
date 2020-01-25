@@ -21,8 +21,8 @@ class Tweet extends React.Component {
     render () {
         return (
             <div className={'tweet'}>
-                <TweetInfo name={this.props.username} time={this.state.time}/>
                 <TweetContent content={this.props.content }/>
+                <TweetInfo name={this.props.username} time={this.state.time}/>
             </div>
         );
     }
@@ -32,8 +32,8 @@ class TweetInfo extends React.Component {
     render () {
         return (
             <div className={'tweet_info'}>
-                <p>Username: {this.props.name}</p>
-                <p>Time: {this.props.time}</p>
+                <div>{this.props.name}</div>
+                <div>{this.props.time}</div>
             </div>
         );
     }
@@ -43,7 +43,7 @@ class TweetContent extends React.Component {
     render () {
         return (
             <div className={'tweet_content'}>
-                Content: {this.props.content}
+                {this.props.content}
             </div>
         );
     }

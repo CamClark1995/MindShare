@@ -1,9 +1,22 @@
 //@import "~bootstrap/scss/bootstrap";
 @import './bootstrap_custom.scss';
 
+html {
+  font: menu;
+  font-size: 1rem;
+}
+
+body {
+  --cam-green: #b3ffcc;
+}
+
+footer {
+  font-size: .93rem;
+}
+
 .tweet {
   border: solid black 1px;
-  padding: 1rem;
+  padding: 0 1rem;
   margin: 1rem;
 }
 
@@ -38,10 +51,49 @@
 .main_body {
   border: 1px solid black;
   padding: 1em 0;
-  max-height: 559px;
+  max-height: 550px;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
   span {
-    margin-left: 655px;
+    margin-left: 628px;
   }
+}
+
+.alert {
+  color: red;
+}
+
+.notice {
+  color: green;
+}
+
+.field_with_errors {
+  display: inline;
+}
+
+.errors {
+  color: red;
+  text-align: left;
+}
+
+.logout {
+  background-color: var(--cam-green);
+  color: gray;
+  padding: .375rem .75rem;
+  border-radius: .25rem;
+  text-decoration: none;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.tweet_info {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: .25rem;
+  font-size: .85rem;
+  opacity: 50%;
+}
+
+.tweet_content {
+  padding: 1rem;
 }

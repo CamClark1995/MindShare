@@ -1,7 +1,7 @@
 module ApplicationHelper
   def display_errors(obj)
     if obj.errors.any?
-      content_tag(:ul) do
+      content_tag(:ul, class: 'errors') do
         obj.errors.full_messages.each do |msg|
           concat(content_tag(:li, msg))
         end
