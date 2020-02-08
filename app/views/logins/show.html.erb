@@ -3,7 +3,7 @@
 
   </div>
   <div class="col-4 login">
-    <h2>Welcome to Cam's Project Site!</h2>
+    <h2>Welcome to MindShare<br />by Cam</h2>
     <%= display_errors(@user) %>
     <%= form_for @user, url: login_path do |f| %>
       <%= render 'flash' %>
@@ -19,7 +19,7 @@
       </div>
 
       <div class="field">
-        <%= f.submit 'Sign In' %>
+        <%= f.submit 'Sign In', class: 'cam_button lightgreen' %>
       </div>
       <%= link_to 'Create New User', new_user_path %>
   <% end %>

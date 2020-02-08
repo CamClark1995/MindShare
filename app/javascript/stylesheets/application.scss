@@ -7,7 +7,10 @@ html {
 }
 
 body {
-  --cam-green: #b3ffcc;
+  --cam-gray: #d5e1df;
+  --cam-lightgreen: #e3eaa7;
+  --cam-green: #b5e7a0;
+  --cam-darkgreen: #86af49;
 }
 
 footer {
@@ -27,7 +30,19 @@ footer {
 .login {
   padding: 1em;
   text-align: center;
-  border: 1px solid black;
+  border: 10px solid var(--cam-gray);
+  border-radius: 66px;
+  background-color: gray;
+  label {
+    color: var(--cam-gray);
+  }
+  a {
+    color: var(--cam-green);
+  }
+}
+
+h2 {
+  color: var(--cam-lightgreen);
 }
 
 .field {
@@ -64,7 +79,7 @@ footer {
 }
 
 .notice {
-  color: green;
+  color: var(--cam-darkgreen);
 }
 
 .field_with_errors {
@@ -76,14 +91,22 @@ footer {
   text-align: left;
 }
 
-.logout {
-  background-color: var(--cam-green);
+.cam_button {
   color: gray;
   padding: .375rem .75rem;
   border-radius: .25rem;
   text-decoration: none;
   font-size: 1rem;
   line-height: 1.5;
+  cursor: pointer;
+}
+
+.lightgreen {
+  background-color: var(--cam-lightgreen);
+}
+
+.green {
+  background-color: var(--cam-green);
 }
 
 .tweet_info {
