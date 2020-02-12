@@ -13,12 +13,8 @@ body {
   --cam-darkgreen: #86af49;
 }
 
-footer {
-  font-size: .93rem;
-}
-
 .tweet {
-  border: solid black 1px;
+  border: 1px solid black;
   padding: 0 1rem;
   margin: 1rem;
 }
@@ -28,7 +24,7 @@ footer {
 }
 
 .login {
-  padding: 1em;
+  padding: 3em 2em;
   text-align: center;
   border: 10px solid var(--cam-gray);
   border-radius: 66px;
@@ -50,23 +46,29 @@ h2 {
 }
 
 .container {
+  border: 1px solid black;
   header, footer {
-    border: 1px solid black;
     padding: 1em;
     margin: 0 -15px;
     display: flex;
     justify-content: space-between;
-
+  }
+  footer {
+    background-color: gray;
+    font-size: .93rem;
+  }
+  header {
+    background-color: var(--cam-green);
     h2 {
       margin: 0;
+      color: var(--cam-darkgreen);
     }
   }
 }
 
 .main_body {
-  border: 1px solid black;
   padding: 1em 0;
-  max-height: 550px;
+  height: 550px;
   overflow-x: hidden;
   overflow-y: auto;
   span {

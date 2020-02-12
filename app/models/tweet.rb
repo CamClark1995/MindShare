@@ -5,5 +5,5 @@ class Tweet < ApplicationRecord
 
   validates :content, presence: true, allow_blank: false
 
-  scope :current, -> { where('created_at >= ?', Time.now - 14.days) }
+  scope :current, -> { where('created_at >= ?', Time.now - 90.days) }
 end
