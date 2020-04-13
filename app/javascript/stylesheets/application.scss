@@ -46,7 +46,6 @@ h2 {
 }
 
 .container {
-  border: 1px solid black;
   header, footer {
     padding: 1em;
     margin: 0 -15px;
@@ -64,6 +63,9 @@ h2 {
       color: var(--cam-darkgreen);
     }
   }
+  &.main_page {
+    border: 1px solid black;
+  }
 }
 
 .main_body {
@@ -71,8 +73,8 @@ h2 {
   height: 550px;
   overflow-x: hidden;
   overflow-y: auto;
-  span {
-    margin-left: 628px;
+  .archive_info {
+    text-align: right;
   }
 }
 
@@ -101,6 +103,16 @@ h2 {
   font-size: 1rem;
   line-height: 1.5;
   cursor: pointer;
+}
+
+.new_post {
+  border: 1px solid gray;
+  background-color: var(--cam-lightgreen);
+  margin-left: 10px;
+}
+
+.logout {
+  background-color: darkgray;
 }
 
 .lightgreen {

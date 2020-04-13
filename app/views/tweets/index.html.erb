@@ -1,13 +1,16 @@
 <div class="row main_body">
-  <div class="col-12">
     <%#= javascript_pack_tag 'hello_react' %>
     <%= render 'flash' %>
 
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newTweetModal">
+  <div class="col-2">
+    <button type="button" class="cam_button btn new_post" data-toggle="modal" data-target="#newTweetModal">
       New Post
     </button>
+  </div>
+  <div class="col-9 archive_info">
     <span>Posts will be viewable for 90 days before being archived</span>
+  </div>
 
     <!-- Modal -->
     <div class="modal fade" id="newTweetModal" tabindex="-1" role="dialog" aria-labelledby="newTweetModalLabel" aria-hidden="true">
@@ -36,7 +39,6 @@
         </div>
       </div>
     </div>
-  </div>
 
   <% @tweets.each do |tweet| %>
     <%= react_component('Tweet', { content: tweet.content, username: tweet.username, created_at: tweet.created_at }, class: 'no_pad col-6') %>
