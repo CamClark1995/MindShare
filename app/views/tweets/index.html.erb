@@ -1,74 +1,71 @@
+<div class="row title_bar">
+  <!-- Button trigger modal -->
+  <button type="button" class="cam_button btn new_post" data-toggle="modal" data-target="#newTweetModal">
+    New Post
+  </button>
+  <%= render 'flash' %>
+  <span>Posts will be viewable for 90 days before being archived</span>
+</div>
 <div class="row main_body">
-    <%#= javascript_pack_tag 'hello_react' %>
-    <%= render 'flash' %>
+  <%#= javascript_pack_tag 'hello_react' %>
 
-    <!-- Button trigger modal -->
-  <div class="col-2">
-    <button type="button" class="cam_button btn new_post" data-toggle="modal" data-target="#newTweetModal">
-      New Post
-    </button>
-  </div>
-  <div class="col-9 archive_info">
-    <span>Posts will be viewable for 90 days before being archived</span>
-  </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="newTweetModal" tabindex="-1" role="dialog" aria-labelledby="newTweetModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="newTweetModalLabel">New 'Tweet'</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <%= form_for @tweet do |f| %>
-            <div class="modal-body">
-              Choose your words carefully - you only get 100 characters!
-              <div id="no_content">&nbsp</div>
-              <%= f.hidden_field :user_id, value: @current_user.id %>
-              <%= f.label :content %>
-              <%= f.text_area :content, cols: 62, rows: 5 %>
-            </div>
-            <div class="modal-footer">
-              <!--        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
-              <!--        <button type="button" class="btn btn-primary"></button>-->
-              <%= f.submit "Create 'Tweet'", id: 'create_tweet', class: 'btn btn-primary' %>
-            </div>
-          <% end %>
+  <!-- Modal -->
+  <div class="modal fade" id="newTweetModal" tabindex="-1" role="dialog" aria-labelledby="newTweetModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="newTweetModalLabel">New 'Tweet'</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
+        <%= form_for @tweet do |f| %>
+        <div class="modal-body">
+          Choose your words carefully - you only get 100 characters!
+          <div id="no_content">&nbsp</div>
+          <%= f.hidden_field :user_id, value: @current_user.id %>
+          <%= f.label :content %>
+          <%= f.text_area :content, cols: 62, rows: 5 %>
+        </div>
+        <div class="modal-footer">
+          <!--        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+          <!--        <button type="button" class="btn btn-primary"></button>-->
+          <%= f.submit "Create 'Tweet'", id: 'create_tweet', class: 'btn btn-primary' %>
+        </div>
+        <% end %>
       </div>
     </div>
+  </div>
 
   <% @tweets.each do |tweet| %>
-    <%= react_component('Tweet', { content: tweet.content, username: tweet.username, created_at: tweet.created_at }, class: 'no_pad col-6') %>
+  <%= react_component('Tweet', { content: tweet.content, username: tweet.username, created_at: tweet.created_at }, class: 'no_pad col-6') %>
   <% end %>
 </div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function(event) {
-        let tweet_content = document.getElementById("tweet_content");
-        let no_content = document.getElementById('no_content');
-        let submit = document.getElementById("create_tweet");
+  document.addEventListener("DOMContentLoaded", function(event) {
+    let tweet_content = document.getElementById("tweet_content");
+    let no_content = document.getElementById('no_content');
+    let submit = document.getElementById("create_tweet");
 
-        submit.addEventListener("click", function(e) {
-            if (tweet_content.value.trim().length === 0)
-            {
-                e.preventDefault();
-                no_content.innerHTML = 'You have not entered anything yet!';
-                no_content.style.backgroundColor = 'yellow';
-                setTimeout(function(){
-                    no_content.innerHTML = '&nbsp';
-                    no_content.style.backgroundColor = 'white';
-                }, 3000);
-            }
-        });
-
-        tweet_content.addEventListener("keydown", function(e) {
-           if (tweet_content.value.length >= 100) {
-               e.preventDefault();
-           }
-        });
+    submit.addEventListener("click", function(e) {
+      if (tweet_content.value.trim().length === 0)
+      {
+        e.preventDefault();
+        no_content.innerHTML = 'You have not entered anything yet!';
+        no_content.style.backgroundColor = 'yellow';
+        setTimeout(function(){
+          no_content.innerHTML = '&nbsp';
+          no_content.style.backgroundColor = 'white';
+        }, 3000);
+      }
     });
+
+    tweet_content.addEventListener("keydown", function(e) {
+     if (tweet_content.value.length >= 100) {
+       e.preventDefault();
+     }
+   });
+  });
 </script>
 
