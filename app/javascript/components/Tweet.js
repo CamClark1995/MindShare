@@ -63,7 +63,7 @@ function posted_at(datetime) {
     } else if (minutes > 0) {
         return minutes===1 ? minutes + ' minute ago' : minutes + ' minutes ago';
     } else {
-        return seconds===1 ? seconds + ' second ago' : seconds + ' seconds ago';
+        return 'seconds ago';
     }
 }
 

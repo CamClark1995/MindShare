@@ -18,6 +18,7 @@ body {
 
 .tweet {
   border: 1px solid black;
+  border-radius: 5px;
   padding: 0 1rem;
   margin: 1rem;
 }
@@ -42,6 +43,10 @@ body {
 }
 
 h1 {
+  color: var(--cam-darkgreen);
+}
+
+h2 {
   color: var(--cam-lightgreen);
 }
 
@@ -104,6 +109,7 @@ h1 {
 }
 
 .cam_button {
+  color: grey;
   padding: .375rem .75rem;
   border-radius: .25rem;
   text-decoration: none;
@@ -113,8 +119,8 @@ h1 {
 }
 
 .new_post {
-  border: 1px solid gray;
-  color: darkgray;
+  border: 1px solid var(--cam-darkgreen);
+  color: var(--cam-darkgreen);
   background-color: var(--cam-lightgreen);
   margin-left: 10px;
 
@@ -153,4 +159,12 @@ h1 {
 
 .tweet_content {
   padding: 1rem;
+}
+
+.close {
+  cursor: pointer;
+}
+
+.modal-title {
+  margin: 0;
 }

@@ -7,7 +7,7 @@ class TweetsController < ApplicationController
   def create
     @tweet = Tweet.new(tweet_params)
     if @tweet.save
-      redirect_to(:root, notice: "Congratulations, you have posted a new 'tweet'!")
+      redirect_to(:root, notice: "Congratulations, you just shared your mind!")
     else
       render :index
     end
