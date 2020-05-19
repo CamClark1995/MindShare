@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-class Tweet extends React.Component {
+class Post extends React.Component {
     constructor(props) {
         super(props);
         this.state = {time: posted_at(props.created_at)}
@@ -20,18 +20,18 @@ class Tweet extends React.Component {
 
     render () {
         return (
-            <div className={'tweet'}>
-                <TweetContent content={this.props.content }/>
-                <TweetInfo name={this.props.username} time={this.state.time}/>
+            <div className={'post'}>
+                <PostContent content={this.props.content }/>
+                <PostInfo name={this.props.username} time={this.state.time}/>
             </div>
         );
     }
 }
 
-class TweetInfo extends React.Component {
+class PostInfo extends React.Component {
     render () {
         return (
-            <div className={'tweet_info'}>
+            <div className={'post_info'}>
                 <div>{this.props.name}</div>
                 <div>{this.props.time}</div>
             </div>
@@ -39,10 +39,10 @@ class TweetInfo extends React.Component {
     }
 }
 
-class TweetContent extends React.Component {
+class PostContent extends React.Component {
     render () {
         return (
-            <div className={'tweet_content'}>
+            <div className={'post_content'}>
                 {this.props.content}
             </div>
         );
@@ -67,9 +67,9 @@ function posted_at(datetime) {
     }
 }
 
-// Tweet.propTypes = {
+// Post.propTypes = {
 //   content: PropTypes.string,
 //   username: PropTypes.string,
 //   time: PropTypes.string
 // };
-export default Tweet
+export default Post

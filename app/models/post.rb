@@ -1,4 +1,4 @@
-class Tweet < ApplicationRecord
+class Post < ApplicationRecord
   belongs_to :user
 
   delegate :username, to: :user, prefix: false

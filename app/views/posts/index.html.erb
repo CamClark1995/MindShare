@@ -1,6 +1,6 @@
 <div class="row title_bar">
   <!-- Button trigger modal -->
-  <button type="button" class="cam_button btn new_post" data-toggle="modal" data-target="#newTweetModal">
+  <button type="button" class="cam_button btn new_post" data-toggle="modal" data-target="#newPostModal">
     New Post
   </button>
   <%= render 'flash' %>
@@ -10,16 +10,16 @@
   <%#= javascript_pack_tag 'hello_react' %>
 
   <!-- Modal -->
-  <div class="modal fade" id="newTweetModal" tabindex="-1" role="dialog" aria-labelledby="newTweetModalLabel" aria-hidden="true">
+  <div class="modal fade" id="newPostModal" tabindex="-1" role="dialog" aria-labelledby="newPostModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title" id="newTweetModalLabel">New Post</h5>
+          <h1 class="modal-title" id="newPostModalLabel">New Post</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <%= form_for @tweet do |f| %>
+        <%= form_for @post do |f| %>
         <div class="modal-body">
           Choose your words carefully - you only get 100 characters!
           <div id="no_content">&nbsp</div>
@@ -30,26 +30,26 @@
         <div class="modal-footer">
           <!--        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
           <!--        <button type="button" class="btn btn-primary"></button>-->
-          <%= f.submit "Share", id: 'create_tweet', class: 'cam_button new_post' %>
+          <%= f.submit "Share", id: 'create_post', class: 'cam_button new_post' %>
         </div>
         <% end %>
       </div>
     </div>
   </div>
 
-  <% @tweets.each do |tweet| %>
-  <%= react_component('Tweet', { content: tweet.content, username: tweet.username, created_at: tweet.created_at }, class: 'no_pad col-6') %>
+  <% @posts.each do |post| %>
+  <%= react_component('Post', { content: post.content, username: post.username, created_at: post.created_at }, class: 'no_pad col-6') %>
   <% end %>
 </div>
 
 <script>
   document.addEventListener("DOMContentLoaded", function(event) {
-    let tweet_content = document.getElementById("tweet_content");
+    let post_content = document.getElementById("post_content");
     let no_content = document.getElementById('no_content');
-    let submit = document.getElementById("create_tweet");
+    let submit = document.getElementById("create_post");
 
     submit.addEventListener("click", function(e) {
-      if (tweet_content.value.trim().length === 0)
+      if (post_content.value.trim().length === 0)
       {
         e.preventDefault();
         no_content.innerHTML = 'You have not entered anything yet!';
@@ -61,8 +61,8 @@
       }
     });
 
-    tweet_content.addEventListener("keydown", function(e) {
-     if (tweet_content.value.length >= 100) {
+    post_content.addEventListener("keydown", function(e) {
+     if (post_content.value.length >= 100) {
        e.preventDefault();
      }
    });
