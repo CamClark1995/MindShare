@@ -20,7 +20,7 @@ class Post extends React.Component {
 
     render () {
         return (
-            <div className={'post'}>
+            <div className={'post_div'}>
                 <PostContent content={this.props.content }/>
                 <PostInfo name={this.props.username} time={this.state.time}/>
             </div>

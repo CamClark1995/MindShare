@@ -14,49 +14,98 @@ body {
   --cam-lightgreen: #e3eaa7;
   --cam-green: #b5e7a0;
   --cam-darkgreen: #86af49;
-}
 
-.post {
-  border: 1px solid black;
-  border-radius: 5px;
-  padding: 0 1rem;
-  margin: 1rem;
-}
-
-.no_pad {
-  padding: 0;
-}
-
-.login {
-  padding: 3em 2em;
-  text-align: center;
-  border: 10px solid var(--cam-gray);
-  border-radius: 66px;
-  background-color: gray;
-  width: 33%;
-  margin: auto;
-  label {
-    color: var(--cam-gray);
+  h1 {
+    color: var(--cam-darkgreen);
   }
-  a {
-    color: var(--cam-green);
-    font-size: 24px;
+  h2 {
+    color: var(--cam-lightgreen);
+  }
+  .alert {
+    color: red;
+  }
+  .notice {
+    color: var(--cam-darkgreen);
+  }
+  .lightgreen {
+    background-color: var(--cam-lightgreen);
+  }
+
+  .green {
+    background-color: var(--cam-green);
+  }
+  .cam_button {
+    color: grey;
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    text-decoration: none;
+    font-size: 1rem;
+    line-height: 1.5;
+    cursor: pointer;
   }
 }
 
-h1 {
-  color: var(--cam-darkgreen);
-}
-
-h2 {
-  color: var(--cam-lightgreen);
-}
-
-.field {
-  padding: 1em;
+.main_body {
+  height: 76vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  align-content: baseline;
+  margin: 0;
+  background-color: lightgray;
+  .post_div {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 0 1rem;
+    margin: 1rem;
+    .post_content {
+      padding: 1rem;
+    }
+    .post_info {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: .25rem;
+      font-size: .85rem;
+      opacity: .5;
+    }
+  }
+  .no_pad {
+    padding: 0;
+  }
+  .close {
+    cursor: pointer;
+  }
+  .modal-title {
+    margin: 0;
+  }
 }
 
 .container {
+  .login {
+    padding: 3em 2em;
+    text-align: center;
+    border: 10px solid var(--cam-gray);
+    border-radius: 66px;
+    background-color: gray;
+    width: 33%;
+    margin: auto;
+    label {
+      color: var(--cam-gray);
+    }
+    a {
+      color: var(--cam-green);
+      font-size: 24px;
+    }
+    .field {
+      padding: 1em;
+    }
+    .field_with_errors {
+      display: inline;
+    }
+    .errors {
+      color: darkred;
+      text-align: left;
+    }
+  }
   header, footer, .title_bar {
     height: 8vh;
     padding: 0 7px;
@@ -64,6 +113,16 @@ h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    .logout {
+      background-color: darkgray;
+      color: var(--cam-lightgreen);
+      border: 1px solid var(--cam-lightgreen);
+
+      &:hover {
+        color: darkgray;
+        background-color: var(--cam-lightgreen);
+      }
+    }
   }
   footer {
     background-color: gray;
@@ -79,94 +138,18 @@ h2 {
   .title_bar {
     background-color: lightgray;
   }
+  .new_post_btn {
+    border: 1px solid var(--cam-darkgreen);
+    color: var(--cam-darkgreen);
+    background-color: var(--cam-lightgreen);
+    margin-left: 10px;
+
+    &:hover {
+      color: var(--cam-lightgreen);
+      background-color: darkgray;
+    }
+  }
   &.main_page {
     height: 100vh;
   }
-}
-
-.main_body {
-  height: 76vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-  align-content: baseline;
-  margin: 0;
-  background-color: lightgray;
-}
-
-.alert {
-  color: red;
-}
-
-.notice {
-  color: var(--cam-darkgreen);
-}
-
-.field_with_errors {
-  display: inline;
-}
-
-.errors {
-  color: red;
-  text-align: left;
-}
-
-.cam_button {
-  color: grey;
-  padding: .375rem .75rem;
-  border-radius: .25rem;
-  text-decoration: none;
-  font-size: 1rem;
-  line-height: 1.5;
-  cursor: pointer;
-}
-
-.new_post_btn {
-  border: 1px solid var(--cam-darkgreen);
-  color: var(--cam-darkgreen);
-  background-color: var(--cam-lightgreen);
-  margin-left: 10px;
-
-  &:hover {
-    color: var(--cam-lightgreen);
-    background-color: darkgray;
-  }
-}
-
-.logout {
-  background-color: darkgray;
-  color: var(--cam-lightgreen);
-  border: 1px solid var(--cam-lightgreen);
-
-  &:hover {
-    color: darkgray;
-    background-color: var(--cam-lightgreen);
-  }
-}
-
-.lightgreen {
-  background-color: var(--cam-lightgreen);
-}
-
-.green {
-  background-color: var(--cam-green);
-}
-
-.post_info {
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: .25rem;
-  font-size: .85rem;
-  opacity: .5;
-}
-
-.post_content {
-  padding: 1rem;
-}
-
-.close {
-  cursor: pointer;
-}
-
-.modal-title {
-  margin: 0;
 }
