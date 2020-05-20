@@ -40,7 +40,7 @@ body {
   }
   a {
     color: var(--cam-green);
-    font-size: 36px;
+    font-size: 24px;
   }
 }
 
@@ -58,7 +58,7 @@ h2 {
 
 .container {
   header, footer, .title_bar {
-    height: 7vh;
+    height: 8vh;
     padding: 0 7px;
     margin: 0;
     display: flex;
@@ -67,7 +67,7 @@ h2 {
   }
   footer {
     background-color: gray;
-    font-size: 1.5vmin;
+    font-size: 90%;
   }
   header {
     background-color: var(--cam-green);
@@ -85,7 +85,7 @@ h2 {
 }
 
 .main_body {
-  height: 79vh;
+  height: 76vh;
   overflow-x: hidden;
   overflow-y: auto;
   align-content: baseline;
@@ -120,7 +120,7 @@ h2 {
   cursor: pointer;
 }
 
-.new_post {
+.new_post_btn {
   border: 1px solid var(--cam-darkgreen);
   color: var(--cam-darkgreen);
   background-color: var(--cam-lightgreen);

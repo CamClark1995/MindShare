@@ -1,6 +1,6 @@
 <div class="row title_bar">
   <!-- Button trigger modal -->
-  <button type="button" class="cam_button btn new_post" data-toggle="modal" data-target="#newPostModal">
+  <button type="button" class="cam_button btn new_post_btn" data-toggle="modal" data-target="#newPostModal">
     New Post
   </button>
   <%= render 'flash' %>
@@ -24,13 +24,12 @@
           Choose your words carefully - you only get 100 characters!
           <div id="no_content">&nbsp</div>
           <%= f.hidden_field :user_id, value: @current_user.id %>
-          <%= f.label :content %>
           <%= f.text_area :content, cols: 62, rows: 5 %>
         </div>
         <div class="modal-footer">
           <!--        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
           <!--        <button type="button" class="btn btn-primary"></button>-->
-          <%= f.submit "Share", id: 'create_post', class: 'cam_button new_post' %>
+          <%= f.submit "Share", id: 'create_post', class: 'cam_button new_post_btn' %>
         </div>
         <% end %>
       </div>
