@@ -1,0 +1,23 @@
+<div class="modal fade" id="newPostModal" tabindex="-1" role="dialog" aria-labelledby="newPostModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="newPostModalLabel">New Post</h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= form_for @post do |f| %>
+      <div class="modal-body">
+        Choose your words carefully - you only get 100 characters!
+        <div id="no_content">&nbsp</div>
+        <%= f.hidden_field :user_id, value: @current_user.id %>
+        <%= f.text_area :content, cols: 62, rows: 5 %>
+      </div>
+      <div class="modal-footer">
+        <%= f.submit "Share", id: 'create_post', class: 'cam_button new_post_btn' %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

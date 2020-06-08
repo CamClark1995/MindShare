@@ -6,35 +6,9 @@
   <%= render 'flash' %>
   <span>Posts will be viewable for 90 days before being archived</span>
 </div>
-<div class="row main_body">
-  <%#= javascript_pack_tag 'hello_react' %>
 
-  <!-- Modal -->
-  <div class="modal fade" id="newPostModal" tabindex="-1" role="dialog" aria-labelledby="newPostModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title" id="newPostModalLabel">New Post</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <%= form_for @post do |f| %>
-        <div class="modal-body">
-          Choose your words carefully - you only get 100 characters!
-          <div id="no_content">&nbsp</div>
-          <%= f.hidden_field :user_id, value: @current_user.id %>
-          <%= f.text_area :content, cols: 62, rows: 5 %>
-        </div>
-        <div class="modal-footer">
-          <!--        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
-          <!--        <button type="button" class="btn btn-primary"></button>-->
-          <%= f.submit "Share", id: 'create_post', class: 'cam_button new_post_btn' %>
-        </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
+<div class="row main_body">
+  <%= render "new_post_modal" %>
 
   <% @posts.each do |post| %>
   <%= react_component('Post', { content: post.content, username: post.username, created_at: post.created_at }, class: 'no_pad col-6') %>
