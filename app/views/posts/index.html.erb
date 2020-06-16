@@ -11,7 +11,7 @@
   <%= render "new_post_modal" %>
 
   <% @posts.each do |post| %>
-  <%= react_component('Post', { content: post.content, username: post.username, created_at: post.created_at }, class: 'no_pad col-6') %>
+  <%= react_component('Post', { content: post.content, username: post.username, created_at: post.created_at }, class: 'no_pad col-lg-6 col-sm-12') %>
   <% end %>
 </div>
 

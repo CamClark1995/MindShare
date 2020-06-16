@@ -17,9 +17,12 @@
         <%= link_to 'Logout', login_path, {class: 'cam_button logout', method: :delete} %>
       </header>
       <%= yield %>
-      <footer>
+      <footer class="footer">
         This site was created and designed by Cameron Clark in 2020 and includes use of the following technologies:
         <strong>Ruby on Rails, JavaScript, jQuery, Bootstrap, React, MySQl</strong>
+      </footer>
+      <footer class="mobile_footer">
+        Created By: Cam Clark
       </footer>
     </div>
   </body>

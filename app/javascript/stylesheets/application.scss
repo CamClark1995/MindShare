@@ -124,9 +124,12 @@ body {
       }
     }
   }
-  footer {
+  .footer {
     background-color: gray;
     font-size: 90%;
+  }
+  .mobile_footer{
+    display: none;
   }
   header {
     background-color: var(--cam-green);
@@ -186,6 +189,56 @@ body {
       }
       .notice p {
         font-size: 56px;
+      }
+    }
+
+    header {
+      height: 12%;
+      h1 {
+        font-size: 120px;
+      }
+      a {
+        font-size: 52px;
+      }
+    }
+    .footer {
+      display: none;
+    }
+    .mobile_footer {
+      height: 6%;
+      font-size: 66px;
+      display: block; 
+      background-color: gray;
+    }
+
+    &.main_page {
+      .new_post_btn {
+        font-size: 52px;
+      }
+
+      .title_bar {
+        height: 12%;
+      }
+
+      span {
+        display: none;
+      }
+
+      .main_body {
+        height: 70%;
+
+        .post_div {
+          margin: .5rem;
+
+          .post_content {
+            font-size: 60px;
+            padding: .5rem;
+          }
+
+          .post_info {
+            font-size: 36px;
+          }
+        }
       }
     }
   }
