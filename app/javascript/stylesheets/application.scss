@@ -157,7 +157,7 @@ body {
   }
 }
 
-@media(max-device-width: 480px) {
+@media(max-device-width: 768px) {
 
   html, body {
     height: 100%;
@@ -238,9 +238,30 @@ body {
           .post_info {
             font-size: 36px;
           }
+
         }
       }
     }
+  }
+
+  .modal-header {
+    padding: .5rem;
+    h1 {
+      font-size: 66px;
+    }
+  }
+  .modal-body {
+    padding: .5rem;
+    font-size: 48px;
+
+    textarea {
+      width: 97%;
+      height: 300px;
+      font-size: 50px;
+    }
+  }
+  .modal-footer {
+    justify-content: center;
   }
 
   .field {
