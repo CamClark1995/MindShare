@@ -225,7 +225,7 @@ body {
       }
 
       .main_body {
-        height: 70%;
+        height: 65%;
 
         .post_div {
           margin: .5rem;
@@ -253,9 +253,10 @@ body {
   .modal-body {
     padding: .5rem;
     font-size: 48px;
+    text-align: center;
 
     textarea {
-      width: 97%;
+      width: 90%;
       height: 300px;
       font-size: 50px;
     }
