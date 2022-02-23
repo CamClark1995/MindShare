@@ -1,5 +1,5 @@
 {
-  "name": "camproj_2019",
+  "name": "mindshare",
   "private": true,
   "dependencies": {
     "@babel/preset-react": "^7.7.4",
